@@ -20,10 +20,6 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   return (
     <a
       href={href}
-      onClick={(e) => {
-        e.preventDefault();
-        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-      }}
       className="relative text-xs tracking-[0.2em] uppercase after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full"
     >
       {children}
@@ -36,10 +32,6 @@ function Header() {
     <nav className="absolute top-0 left-0 w-full p-6 md:px-12 lg:px-24 z-50 flex justify-between items-center mix-blend-difference text-white">
       <a
         href="#top"
-        onClick={(e) => {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
         className="font-serif text-xl md:text-2xl tracking-wide"
       >
         S. D. Stephenson
