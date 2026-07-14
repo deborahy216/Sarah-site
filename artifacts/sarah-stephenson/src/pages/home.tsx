@@ -16,9 +16,47 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
   );
 }
 
+function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a
+      href={href}
+      onClick={(e) => {
+        e.preventDefault();
+        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+      }}
+      className="relative text-xs tracking-[0.2em] uppercase after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full"
+    >
+      {children}
+    </a>
+  );
+}
+
+function Header() {
+  return (
+    <nav className="absolute top-0 left-0 w-full p-6 md:px-12 lg:px-24 z-50 flex justify-between items-center mix-blend-difference text-white">
+      <a
+        href="#top"
+        onClick={(e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+        className="font-serif text-xl md:text-2xl tracking-wide"
+      >
+        S. D. Stephenson
+      </a>
+      <div className="hidden md:flex items-center gap-10">
+        <NavLink href="#about">Story</NavLink>
+        <NavLink href="#book">The Book</NavLink>
+        <NavLink href="#dedication">Dedication</NavLink>
+        <NavLink href="#contact">Contact</NavLink>
+      </div>
+    </nav>
+  );
+}
+
 function Hero() {
   return (
-    <section className="relative min-h-[100dvh] flex items-center pt-24 pb-12 px-6 md:px-12 lg:px-24 overflow-hidden">
+    <section id="top" className="relative min-h-[100dvh] flex items-center pt-24 pb-12 px-6 md:px-12 lg:px-24 overflow-hidden">
       <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 w-full max-w-7xl mx-auto items-center relative z-10">
         <div className="lg:col-span-7 flex flex-col justify-center space-y-10">
           <FadeIn>
@@ -111,7 +149,7 @@ function About() {
 
 function Book() {
   return (
-    <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-card overflow-hidden">
+    <section id="book" className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-card overflow-hidden">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
         <div className="lg:col-span-5 lg:col-start-2 relative perspective-[1200px] order-2 lg:order-1">
           <FadeIn>
@@ -155,7 +193,7 @@ function Book() {
 
 function Dedication() {
   return (
-    <section className="py-32 px-6 flex items-center justify-center text-center bg-background border-t border-border/50">
+    <section id="dedication" className="py-32 px-6 flex items-center justify-center text-center bg-background border-t border-border/50">
       <FadeIn>
         <div className="max-w-4xl mx-auto space-y-8">
           <p className="text-2xl md:text-3xl lg:text-4xl font-serif text-foreground/90 leading-relaxed">
@@ -170,7 +208,7 @@ function Dedication() {
 
 function Footer() {
   return (
-    <footer className="bg-foreground text-background py-16 md:py-24 px-6 md:px-12 lg:px-24">
+    <footer id="contact" className="bg-foreground text-background py-16 md:py-24 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-16 items-center">
         <div className="md:col-span-7 lg:col-span-6 space-y-8">
           <h3 className="text-3xl md:text-4xl font-serif">Let's keep the conversation honest.</h3>
@@ -210,9 +248,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background relative selection:bg-primary/20 selection:text-foreground">
       <div className="noise-overlay" />
-      <nav className="absolute top-0 left-0 w-full p-6 md:px-12 lg:px-24 z-50 flex justify-between items-center mix-blend-difference text-white">
-        <span className="font-serif text-xl md:text-2xl tracking-wide">S. D. Stephenson</span>
-      </nav>
+      <Header />
       <Hero />
       <About />
       <Book />
