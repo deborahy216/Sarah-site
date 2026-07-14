@@ -20,9 +20,11 @@ export function SiteHeader() {
       <Link href="/" className="font-serif text-xl md:text-2xl tracking-wide">
         S. D. Stephenson
       </Link>
-      <div className="hidden md:flex items-center gap-10">
-        <NavLink href="/story">Story</NavLink>
-        <NavLink href="/book">The Book</NavLink>
+      <div className="hidden md:flex items-center gap-8">
+        <NavLink href="/bio">Bio · Edu · Exp</NavLink>
+        <NavLink href="/bookshelves">Bookshelves</NavLink>
+        <NavLink href="/socials">Socials / Podcast</NavLink>
+        <NavLink href="/portfolio">Creative Portfolio</NavLink>
         <NavLink href="/dedication">Dedication</NavLink>
         <NavLink href="/contact">Contact</NavLink>
       </div>

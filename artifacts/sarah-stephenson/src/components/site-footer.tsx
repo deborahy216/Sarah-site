@@ -5,9 +5,11 @@ export function SiteFooter() {
     <footer className="bg-foreground text-background py-12 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
         <p className="font-serif italic text-lg text-background/60">S. D. Stephenson</p>
-        <div className="flex items-center gap-8 text-background/60 text-xs tracking-[0.15em] uppercase">
-          <Link href="/story">Story</Link>
-          <Link href="/book">The Book</Link>
+        <div className="flex flex-wrap justify-center items-center gap-6 text-background/60 text-xs tracking-[0.15em] uppercase">
+          <Link href="/bio">Bio</Link>
+          <Link href="/bookshelves">Bookshelves</Link>
+          <Link href="/socials">Socials</Link>
+          <Link href="/portfolio">Portfolio</Link>
           <Link href="/dedication">Dedication</Link>
           <Link href="/contact">Contact</Link>
         </div>

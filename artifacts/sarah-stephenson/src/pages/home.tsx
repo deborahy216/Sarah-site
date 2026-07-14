@@ -23,7 +23,7 @@ function Hero() {
           </FadeIn>
           <FadeIn delay={0.4}>
             <Link
-              href="/story"
+              href="/bio"
               className="group flex items-center space-x-4 text-sm tracking-widest uppercase font-semibold text-primary transition-colors hover:text-foreground cursor-pointer w-fit"
             >
               <span>Read My Story</span>
